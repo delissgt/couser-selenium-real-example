@@ -1,0 +1,21 @@
+version: '2.1'
+
+orbs:
+  node: circleci/node@5.0.2
+
+
+jobs:
+  deploy-surge:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install:
+          node-version: '16.13.1'
+      - node/install-packages
+
+
+
+workflows:
+  test-and-deploy:
+    jobs:
+      - deploy-surge
