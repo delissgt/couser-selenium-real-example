@@ -15,7 +15,9 @@ jobs:
 
       - run:
           name: deployment-production
-          command: surge --project . --domain uncovered-brake.surge.sh
+          command: |
+            npm install --global surge
+            surge --project . --domain uncovered-brake.surge.sh
 
 
 
