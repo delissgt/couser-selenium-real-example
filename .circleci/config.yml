@@ -44,4 +44,6 @@ workflows:
           filters:
             branches:
               only: master
+          requires:
+            - smoke-test
       - smoke-test
