@@ -12,7 +12,7 @@ jobs:
       - node/install:
           node-version: '16.13.1'
       - node/install-packages
-      - run: npm run start &
+      - run: npm run start
       - run:
           name: smoke-test-site
           command: |
