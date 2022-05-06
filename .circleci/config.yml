@@ -12,7 +12,7 @@ jobs:
       - node/install:
           node-version: '16.13.1'
       - node/install-packages
-      - run: npm run start
+      - run: npm run start &
       - run:
           name: smoke-test-site
           command: |
@@ -20,11 +20,12 @@ jobs:
             do
               RESPONSE=$(wget --spider --server-response http://localhost:3000/ 2>&1 | grep -c '200\ OK')
 
-              if [[RESPONSE == 1]]
+              if [[ $RESPONSE == 1 ]]
               then
+                  echo "success"
                   exit 0
               fi
-
+                echo "retrying"
               sleep 1
             done
 
