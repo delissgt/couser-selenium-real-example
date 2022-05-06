@@ -5,7 +5,7 @@ orbs:
 
 
 jobs:
-  deploy-surge:
+  smoke-test:
     executor: node/default
     steps:
       - checkout
@@ -19,6 +19,13 @@ jobs:
 
             ./scripts/smoke-test.sh
 
+  deploy-surge:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install:
+            node-version: '16.13.1'
+      - node/install-packages
       - run:
           name: build-for-deployment
           command: npm run build
@@ -33,4 +40,7 @@ jobs:
 workflows:
   test-and-deploy:
     jobs:
-      - deploy-surge
+      - deploy-surge:
+          filters:
+            branches:
+              only: master
