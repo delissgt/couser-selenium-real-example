@@ -12,6 +12,9 @@ jobs:
       - node/install:
           node-version: '16.13.1'
       - node/install-packages
+    run:
+      name: deployment-production
+      command: surge --project . --domain uncovered-brake.surge.sh
 
 
 

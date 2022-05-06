@@ -10,6 +10,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>Deliss was here!</p>
+        <p>deploy with configuration surge</p>
         <a
           className="App-link"
           href="https://reactjs.org"
