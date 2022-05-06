@@ -12,10 +12,12 @@ jobs:
       - node/install:
           node-version: '16.13.1'
       - node/install-packages
-      - run: npm run start &
       - run:
           name: smoke-test-site
-          command: ./scripts/smoke-test.sh
+          command: |
+            npm run start &
+
+            ./scripts/smoke-test.sh
 
       - run:
           name: build-for-deployment
