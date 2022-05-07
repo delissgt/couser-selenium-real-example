@@ -11,7 +11,7 @@ function App() {
         </p>
         <p>Deliss was here!</p>
         <p>deploy with configuration surge</p>
-        <p>change extra</p>
+        <p>change extra only in develop branch</p>
         <a
           className="App-link"
           href="https://reactjs.org"
