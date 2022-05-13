@@ -1,0 +1,6 @@
+.idea
+.circleci
+.github
+.dockerignore
+.gitignore
+node_modules
