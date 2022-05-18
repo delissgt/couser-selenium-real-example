@@ -47,8 +47,11 @@ jobs:
             wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
             sudo apt install ./dive_0.9.2_linux_amd64.deb
       - run:
-          name: build and analyze image
-          command: dive build -t delissgt/react-selenium-real-example:latest .
+          name: build image
+          command: docker build delissgt/react-selenium-real-example:latest .
+      - run:
+          name: analyze image
+          command: dive delissgt/react-selenium-real-example:latest
 
 
 
