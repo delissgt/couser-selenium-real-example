@@ -40,12 +40,12 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
+      - setup_remote_docker
       - run:
-          name: get dive
-          command: wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
-      - run:
-          name: install dive
-          command: sudo apt install ./dive_0.9.2_linux_amd64.deb
+          name: get install dive
+          command: |
+            wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
+            sudo apt install ./dive_0.9.2_linux_amd64.deb
       - run:
           name: build and analyze image
           command: dive build -t delissgt/react-selenium-real-example:latest .
